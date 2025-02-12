@@ -2,6 +2,16 @@ exports.config = {
   user: process.env.AA_USERNAME || 'BROWSERSTACK_USERNAME',
   key: process.env.AA_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
 
+  services: [
+    [
+      'browserstack',
+      {
+        percy: true,
+        percyCaptureMode: 'manual',
+      },
+    ],
+  ],
+
   updateJob: false,
   specs: [
     './ios/specs/test.js'
@@ -14,7 +24,7 @@ exports.config = {
     name: 'first_visual_test',
     device: 'iPhone 12 Pro',
     os_version: "16",
-    app: process.env.APP || 'bs://<hashed app-id>'
+    app: process.env.APP || 'bs://e18bc80561a81388c94da361fb90e31336688e01',
   }],
 
   logLevel: 'info',
